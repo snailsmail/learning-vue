@@ -18,10 +18,12 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
 
 //https://github.com/193Eric/webpack-vue-demo
+
 步骤
+
 1.用脚手架vue-cli搭建目录
+
 2.用命令添加依赖（vuex, vue-resource）
+
