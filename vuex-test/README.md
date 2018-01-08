@@ -1,2 +1,2 @@
 # vuex-test
-#利用vue-cli搭建腳手架，练习vuex
+#利用腳手架搭建目录，练习vuex
