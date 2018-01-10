@@ -1,49 +1,42 @@
 {
   "status":1,
   "result":{
-    "totalMoney":59,
     "list":[
       {
-        "productId":"600100002115",
-        "productName":"黄鹤楼香烟",
-        "productPrice":19,
-        "productQuentity":1,
-        "productImage":"img/goods-1.jpg",
-        "parts":[
-          {
-            "partsId":"10001",
-            "partsName":"打火机",
-            "img":"img/part-1.jpg"
-          }
-        ]
+        "newsId":"0002110",
+        "newsName":"商品列表",
+        "newsUrl":"/inProducts",
+        "newsImage":"./../static/goods-1.png"
       },
       {
-        "productId":"600100002120",
-        "productName":"加多宝",
-        "productPrice":8,
-        "productQuentity":5,
-        "productImage":"img/goods-2.jpg",
-        "parts":[
-          {
-            "partsId":"20001",
-            "partsName":"吸管",
-            "img":"img/part-2.jpg"
-          }
-        ]
+        "newsId":"0002111",
+        "newsName":"每日一笑",
+        "newsUrl":"inSmileEveryDay",
+        "newsImage":"./../static/goods-2.png"
       },
       {
-        "productId":"600100002117",
-        "productName":"金装黄鹤楼",
-        "productPrice":25,
-        "productQuentity":2,
-        "productImage":"img/goods-1.jpg",
-        "parts":[
-          {
-            "partsId":"10001",
-            "partsName":"打火机",
-            "img":"img/part-1.jpg"
-          }
-        ]
+        "newsId":"0002112",
+        "newsName":"手机充值",
+        "newsUrl":"/inPhone",
+        "newsImage":"./../static/goods-3.png"
+      },
+      {
+        "newsId":"0002113",
+        "newsName":"购物车",
+        "newsUrl":"/inShoppingCart",
+        "newsImage":"./../static/goods-4.png"
+      },
+      {
+        "newsId":"0002114",
+        "newsName":"付款",
+        "newsUrl":"/inPayment",
+        "newsImage":"./../static/goods-5.png"
+      },
+      {
+        "newsId":"0002115",
+        "newsName":"其它",
+        "newsUrl":"/inOther",
+        "newsImage":"./../static/goods-6.png"
       }
     ]
   },

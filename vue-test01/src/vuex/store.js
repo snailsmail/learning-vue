@@ -16,6 +16,10 @@ const mutations = {
   IN_MY (state) {
     state.home = false
     state.my = true
+  },
+  IN_OTHER () {
+    state.home = false
+    state.my = false
   }
 }
 const actions = {
@@ -24,6 +28,9 @@ const actions = {
   },
   inMy ({commit}) {
     commit('IN_MY')
+  },
+  inOther ({commit}) {
+    commit('IN_OTHER')
   }
 }
 
