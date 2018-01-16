@@ -53,5 +53,8 @@
     width: 80px;
     height: 80px;
   }
+  .news-detail .detail a {
+    text-decoration: none;
+  }
 
 </style>

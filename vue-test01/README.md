@@ -43,4 +43,4 @@ this.$ajax.get('http://localhost:8081/api/news').then(function (retObj) {
 #在json中会有图片地址，将图片存放在static文件夹下，在config/index.js中有相关配置（assetsPublicPath）
 #项目在开发模式下css中用url（）引用图片是正常的，但是打包后图片路径却并没有被处理或者说特别怪异,导致本地图片资源无法加载(http://www.cnblogs.com/crazycode2/p/7738869.html)
 
-#180110添加商品列表,购物车,登录
+#添加登录登出功能，应用localStorage

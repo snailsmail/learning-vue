@@ -8,6 +8,7 @@ import Phone from '@/views/phone'
 import ShoppingCart from '@/views/shoppingCart'
 import Payment from '@/views/payment'
 import Other from '@/views/others'
+import Login from '@/views/login'
 
 Vue.use(Router)
 
@@ -57,6 +58,11 @@ export default new Router({
       path: '/inOther',
       name: 'Other',
       component: Other
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     }
   ]
 })

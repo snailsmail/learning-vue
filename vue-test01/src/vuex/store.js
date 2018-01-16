@@ -6,7 +6,9 @@ Vue.use(Vuex)
 const state = {
   home: true,
   my: false,
-  data: ''
+  isLogin: localStorage.getItem('isLogin'),
+  loginName: localStorage.getItem('loginName'),
+  shoppingData: ''
 }
 const mutations = {
   IN_HOME (state) {
@@ -17,9 +19,21 @@ const mutations = {
     state.home = false
     state.my = true
   },
-  IN_OTHER () {
+  IN_OTHER (state) {
     state.home = false
     state.my = false
+  },
+  IN_LOGIN (state, newLoginName) {
+    state.isLogin = 'true'
+    state.loginName = newLoginName
+    localStorage.setItem('loginName', newLoginName)
+    localStorage.setItem('isLogin', state.isLogin)
+  },
+  IN_LOGOUT (state) {
+    state.isLogin = 'false'
+    state.loginName = ''
+    localStorage.setItem('loginName', state.loginName)
+    localStorage.setItem('isLogin', state.isLogin)
   }
 }
 const actions = {
@@ -31,6 +45,12 @@ const actions = {
   },
   inOther ({commit}) {
     commit('IN_OTHER')
+  },
+  inLogin ({commit}, newLoginName) {
+    commit('IN_LOGIN', newLoginName)
+  },
+  inLogout ({commit}) {
+    commit('IN_LOGOUT')
   }
 }
 
