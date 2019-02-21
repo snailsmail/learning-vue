@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>原生js双向绑定实现</title>
+</head>
+<body>
+
+<input id='inputVal' type='text'> <div id='showVal'></div>
+<script type="text/javascript">
+  //1、设置属性
+  var obj = {};
+  Object.defineProperty(obj,'userName',{
+    set: function(newValue){
+      document.getElementById('showVal').innerText = newValue;
+    }
+  })
+  //监听事件并改变对应属性
+  document.getElementById('inputVal').addEventListener('keyup',function(event){
+    obj.userName = event.target.value;
+  })
+</script>
+
+</body>
+</html>
