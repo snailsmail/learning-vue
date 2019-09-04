@@ -6,24 +6,27 @@
 
 <script>
 export default {
-  name: 'my-input',
-  inheritableAttrs: false,
+  inheritAttrs: false, // 若有其他自定义属性,可显示在input标签上
   props: {
     type: {
       type: String,
       default: 'text'
+    },
+    value: {
+      type: String,
+      default: ''
     }
   },
   data () {
     return {
-      value: ''
     }
   },
   methods: {
     input (e) {
-      console.log(e.target.value)
-      this.value = e.target.value
-      // this.$emit('input', e.value)
+      this.$emit('input', e.target.value)
+
+      // 通知父级组件要调用事件了
+      this.$parent.$emit('validate')
     }
   }
 }

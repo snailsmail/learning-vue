@@ -1,23 +1,29 @@
 <template>
   <div class="hello">
 
-    <h2>My Form</h2>
+    <h2>My Form UI</h2>
+    <my-form :model="ruleForm" :rules="rules" ref="myForm">
+      <my-form-item label="用户名" prop="username">
+        <my-input v-model="ruleForm.username"></my-input>
+      </my-form-item>
 
-    <my-input type="text" v-model="ruleForm.username"></my-input>
+      <my-form-item label="密码" prop="password">
+        <my-input type="password" v-model="ruleForm.password"></my-input>
+      </my-form-item>
 
-    <my-input type="password" v-model="ruleForm.password"></my-input>
+      <my-form-item>
+        <el-button @click="submitForm('myForm')">提交</el-button>
+      </my-form-item>
+    </my-form>
 
-    <br/>
-    <br/>
-    <br/>
     <br/>
     <h2>element-ui</h2>
 
-    <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-      <el-form-item label="密码" prop="username">
-        <el-input type="text" v-model="ruleForm.username"></el-input>
+    <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm">
+      <el-form-item label="用户名" prop="username">
+        <el-input v-model="ruleForm.username"></el-input>
       </el-form-item>
-      <el-form-item label="确认密码" prop="password">
+      <el-form-item label="密码" prop="password">
         <el-input type="password" v-model="ruleForm.password"></el-input>
       </el-form-item>
       <el-form-item>
@@ -30,9 +36,13 @@
 
 <script>
 import MyInput from '@/components/MyInput'
+import MyFormItem from '@/components/MyFormItem'
+import MyForm from '@/components/MyForm'
 export default {
   components: {
-    'my-input': MyInput
+    'my-input': MyInput,
+    'my-form-item': MyFormItem,
+    'my-form': MyForm
   },
   data () {
     return {
