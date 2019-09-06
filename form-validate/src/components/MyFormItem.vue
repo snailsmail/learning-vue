@@ -29,7 +29,10 @@ export default {
   },
   mounted () {
     // 监听validate事件
-    this.$on('validate', this.validate)
+    // 注意$on写法,若写成this.$on('validate', () => this.validate()),或是this.$on('validate', this.validate()),验证的时候会报错
+    this.$on('validate', () => {
+      this.validate()
+    })
   },
   methods: {
     validate () {

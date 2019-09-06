@@ -28,14 +28,11 @@ export default {
     }
   },
   methods: {
-    validate (cb) {
+    // validate的参数问题,不能传cb或者callback,编译提示不正常文本出现,所以改为func
+    validate (func) {
       const tasks = this.$children.filter(item => item.prop).map(item => item.validate())
-      Promise.all(tasks).then(() => {
-        cb(true)
-      }).catch(() => {
-        console.log(cb)
-        cb(false)
-      })
+      Promise.all(tasks).then(() =>
+        func(true)).catch(() => func(false))
     }
   }
 }
