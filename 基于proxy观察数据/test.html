@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+</head>
+<body>
+
+<script>
+
+  // 一. es5 Object.defineProperty()
+  // 1. 用Object.defineProperty()方法创建一个对象
+  // let vm = Object.defineProperty({}, 'name', {
+  // 	get () {
+  // 		console.log('get...')
+  //     return '张三'
+  //   },
+  //   set (newValue) {
+  // 		console.log('set...')
+  //     console.log('新的值', newValue)
+  //   }
+  // })
+  //
+  // console.log(vm.name)
+  // vm.name = '111'
+
+  // 与上面的创建方式一致,但是数据不能监听,上面的方法有get,set方法可以控制操作
+  // let vm = {
+  // 	name: '张三'
+  // }
+  //
+  // console.log(vm.name)
+  // vm.name = '111'
+  // console.log(vm.name)
+
+
+  // 2.修改对象
+  // let vm = {
+		// name: '张三',
+  //   age: 18
+  // }
+  //
+  // let keys = Object.keys(vm);
+  // keys.forEach(key => {
+		// let value = vm[key]
+		// Object.defineProperty(vm, key, {
+		// 	get () {
+		// 		console.log('get...')
+		// 		return value
+  //     },
+  //     set (newValue) {
+		// 		if (value !== newValue) {
+		// 			console.log('set...')
+		// 			value = newValue
+		// 		}
+  //     }
+  //   })
+  // })
+  //
+  // console.log(vm.name)
+
+  // 问题: 数组改变不能触发视图更新 arr:['张三', '李四'] arr[0] = '111' 这个时候是不能触发更新视图
+  // 或者给对象中添加属性,也是劫持不到数据,需要用$set来监听
+  // 对象设置中：
+  // configurable： 可删除，默认值为false，不可删除
+  // enumerable： 可枚举，默认为false，数据操作中，1.在for...in循环时，默认值是不可显示的，2.JSON.parse()  3.Object.keys 都受到可枚举属性的影响
+  // 若是没有设置configuration 操作： delete vm.name,这个name值还是在的，这个操作其实是无效的，若将属性configuration设为true，则课删除
+
+
+  // 二. es6 Proxy
+	let vm = {
+	name: '张三',
+	  age: 18
+	}
+  let newVm = new Proxy(vm, {
+  	get (target, key) { // target是vm
+			console.log('get...')
+  		return target[key]
+    },
+    set (target, key, newValue) {
+			console.log('set...')
+  		if (target[key] !== newValue) {
+				target[key] = newValue
+      }
+    }
+  })
+
+	newVm.name = '111'
+
+</script>
+</body>
+</html>

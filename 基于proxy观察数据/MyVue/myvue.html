@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <div></div>
+  {{ message }}
+  <div>
+    <span>
+      <p>{{ message }}</p>
+      <p>{{ testData}}</p>
+    </span>
+  </div>
+</div>
+<script type="module">
+  import MyVue from './myvue.js'
+  let vm = new MyVue({
+    el: "#app",
+    data: {
+    	message: 'my vue',
+      testData: 'some value'
+    }
+  })
+
+  setTimeout( () => {
+  	console.log('‘触发了’')
+		vm.$options.data['message'] = '111'
+  }, 1000)
+</script>
+</body>
+</html>
