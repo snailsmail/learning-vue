@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>defineProperty</title>
+</head>
+<body>
+<div id="app">
+  <p id="name"></p>
+</div>
+
+<script>
+  let obj = {};
+
+  Object.defineProperty(obj, 'name', {
+  	get: function () {
+      return document.querySelector('#name').innerHTML
+		},
+    set: function (newVal) {
+      document.querySelector('#name').innerHTML = newVal
+		}
+  })
+
+  obj.name = 'Hello xx!'
+</script>
+</body>
+</html>

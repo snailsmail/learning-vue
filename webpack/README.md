@@ -15,9 +15,10 @@ grunt/gulp是一种优化前段开发流程的工具，可用webpack代替
 二者比较：webpack处理速度更快更直接，能打包更多不同类型的文件
 
 1.通过配置文件来使用webpack
-创建webpack.config.js文件配置相关的属性
+创建webpack.config.js文件配置相关的属性(CommonJS module)
 
-2.在package.js中的script关键字中添加start属性（npm可以引导任务执行，npm start可以代替命令行： node_modules/.bin/webpack app/main.js public/bundle.js），start属性的值会按照一定的顺序寻找命令对应的位置，本地的node_modules/.bin路径就在这个寻找清单中。
+2.在package.js中的script关键字中添加start属性（npm可以引导任务执行，npm start可以代替命令行： node_modules/.bin/webpack app/main.js public/bundle.js），
+start属性的值会按照一定的顺序寻找命令对应的位置，本地的node_modules/.bin路径就在这个寻找清单中。
 
 3.webpack的强大功能
     1)生成Source Maps(使调试更容易)
@@ -37,7 +38,8 @@ grunt/gulp是一种优化前段开发流程的工具，可用webpack代替
                 H5的history api新增了三个方法：
                     pushState('参数'， 'title', '/url'),
                     replaceState(data, title [, url]),
-                    popState需要浏览器操作前进或后退时或者调用history.go，history.back，history.forward方法也会触发监听（window.onpopstate = function (e) { var state = e.state}）
+                    popState需要浏览器操作前进或后退时或者调用history.go，history.back，history.forward方法也会触发监听（window.onpopstate = function (e)
+                    { var state = e.state}）
     3)Loaders(webpack有能力调用外部的脚本或工具，实现对不同格式的文件的处理，比如说分析转换scss为css，或者把下一代的js文件（es6，es7）转换为现代浏览器兼容的js文件)
         modules关键字
         选项
@@ -49,10 +51,10 @@ grunt/gulp是一种优化前段开发流程的工具，可用webpack代替
         babel其实是几个模块化的包，其核心功能位于称为babel-core的npm包中
         （解析es6的babel-env-preset包，解析jsx的babel-preset-react包）
         添加依赖命令
-        npm install --save-dev babel-core babel-loader babel-preset-env babel-preset-react
+          ``` bash npm install --save-dev babel-core babel-loader babel-preset-env babel-preset-react ```
 
         //测试
-        安装react, react-dom 命令 npm install --save react react-dom
+        安装react, react-dom 命令``` bash npm install --save react react-dom ```
 
     5)一切皆模块
         webpack有个不可不说的优点，可以把所有的文件都可以当做模块处理，js，css，fonts以及图片等等都可以通过合适的loader被处理

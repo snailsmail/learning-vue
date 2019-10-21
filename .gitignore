@@ -36,6 +36,11 @@ vue-test01/.postcssrc.js
 vue-test01/package-lock.json
 
 
+*/node_modules/
+*/*/node_modules/
+*/*/*/node_modules/
+
+
 # Editor directories and files
 .idea
 .vscode

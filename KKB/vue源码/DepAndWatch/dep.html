@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>依赖收集</title>
+  <script src="KVue.js"></script>
+</head>
+<body>
+
+<script>
+  const app = new KVue({
+    data: {
+    	test: '888',
+      foo: {
+    		bar: '888'
+      }
+    }
+  })
+  app.$data.test = '0000'
+  app.$data.foo.bar = '0000'
+</script>
+
+</body>
+</html>

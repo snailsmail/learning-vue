@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>测试自己的vue</title>
+  <script src="KVue.js"></script>
+</head>
+<body>
+
+<script>
+  const app = new KVue({
+    data: {
+    	bar: '8888',
+      foo: {
+    		foo2: '6666'
+      }
+    }
+  })
+  app.$data.bar = '0000'
+  app.$data.foo.foo2 = '0000'
+</script>
+</body>
+</html>
