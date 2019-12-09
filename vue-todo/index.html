@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    ul > li.done {
+      color: #ff0000;
+      text-decoration: line-through;
+    }
+  </style>
+  <script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <div>
+    <input type="text" v-model="inputVal"/>
+    <button @click="addItems">添加</button>
+    <button @click="clearItem">清空</button>
+  </div>
+
+  <div>
+    <ul>
+      <li v-for="(item, index) in items"
+          :key="index"
+          :class="[item.done ? 'done' : '']">
+        <input type="checkbox" v-model="item.done" />
+        {{item.title}}
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    {{active}} / {{all}}
+  </div>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data () {
+    	return {
+    		inputVal: '',
+        items: [{
+    			title: '学习Vue.js',
+          done: false
+        }]
+      }
+    },
+    computed: {
+			all () {
+				return this.items.length
+      },
+			active () {
+				return this.items.filter(item => !item.done).length
+      }
+    },
+    methods: {
+			addItems () {
+				if (this.inputVal) {
+					this.items.push({
+						title: this.inputVal,
+						done: false
+					})
+					this.inputVal = ''
+        }
+      },
+			clearItem () {
+				this.items = []
+      }
+    }
+  })
+</script>
+</body>
+</html>
